@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0458B6CA242872B100827914 /* libMediaPlayerSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0458B6C9242872B100827914 /* libMediaPlayerSDK.a */; };
 		CE76773F1F615BAD008BC3CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76773E1F615BAD008BC3CC /* AppDelegate.swift */; };
 		CE7677411F615BAD008BC3CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7677401F615BAD008BC3CC /* ViewController.swift */; };
 		CE7677441F615BAD008BC3CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7677421F615BAD008BC3CC /* Main.storyboard */; };
@@ -22,9 +23,6 @@
 		CE7677721F6166F3008BC3CC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7677711F6166F3008BC3CC /* AudioToolbox.framework */; };
 		CE7677741F616706008BC3CC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7677731F616706008BC3CC /* AVFoundation.framework */; };
 		CE7677761F616717008BC3CC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7677751F616717008BC3CC /* libstdc++.tbd */; };
-		CE7677781F626D80008BC3CC /* ffmpeg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7677771F626D80008BC3CC /* ffmpeg.framework */; };
-		CE76777A1F627EAE008BC3CC /* libMediaPlayerSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7677791F627EAE008BC3CC /* libMediaPlayerSDK.a */; };
-		CE76777B1F627F74008BC3CC /* ffmpeg.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE7677771F626D80008BC3CC /* ffmpeg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +32,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CE76777B1F627F74008BC3CC /* ffmpeg.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0458B6C9242872B100827914 /* libMediaPlayerSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMediaPlayerSDK.a; path = ../../lib/static.ffmpeg/libMediaPlayerSDK.a; sourceTree = "<group>"; };
 		CE76773B1F615BAC008BC3CC /* MediaPlayerSDKTest.swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaPlayerSDKTest.swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE76773E1F615BAD008BC3CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7677401F615BAD008BC3CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,8 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE76777A1F627EAE008BC3CC /* libMediaPlayerSDK.a in Frameworks */,
-				CE7677781F626D80008BC3CC /* ffmpeg.framework in Frameworks */,
+				0458B6CA242872B100827914 /* libMediaPlayerSDK.a in Frameworks */,
 				CE7677761F616717008BC3CC /* libstdc++.tbd in Frameworks */,
 				CE7677741F616706008BC3CC /* AVFoundation.framework in Frameworks */,
 				CE7677721F6166F3008BC3CC /* AudioToolbox.framework in Frameworks */,
@@ -122,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				CE7677791F627EAE008BC3CC /* libMediaPlayerSDK.a */,
+				0458B6C9242872B100827914 /* libMediaPlayerSDK.a */,
 				CE7677771F626D80008BC3CC /* ffmpeg.framework */,
 				CE7677751F616717008BC3CC /* libstdc++.tbd */,
 				CE7677731F616706008BC3CC /* AVFoundation.framework */,
@@ -169,7 +167,7 @@
 				TargetAttributes = {
 					CE76773A1F615BAC008BC3CC = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 37TMES8PKP;
+						DevelopmentTeam = 696BHPW9KB;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -354,14 +352,34 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 37TMES8PKP;
+				DEVELOPMENT_TEAM = 696BHPW9KB;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../../../builds/framework/universal";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../builds/library/include";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/inc/**",
+					"$(PROJECT_DIR)/../../lib/include",
+					"$(PROJECT_DIR)/../../bin/library/include/**",
+					"$(PROJECT_DIR)/../../../builds/library/include",
+					"$(PROJECT_DIR)/../../../../builds/library/include",
+				);
 				INFOPLIST_FILE = MediaPlayerSDKTest.swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../../../builds/library/lib/shared";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.veg.MediaPlayerSDKTest-swift";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs",
+					"$(PROJECT_DIR)/../../lib",
+					"$(PROJECT_DIR)/../../lib/static.ffmpeg",
+					"$(PROJECT_DIR)/../../bin/library/lib/static.ffmpeg",
+					"$(PROJECT_DIR)/../../../builds/library/lib/static",
+					"$(PROJECT_DIR)/../../../../builds/library/lib/static",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.veg.MediaPlayerSDKTest-swift-jan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridge-header.h";
 				SWIFT_VERSION = 5.0;
@@ -372,14 +390,34 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 37TMES8PKP;
+				DEVELOPMENT_TEAM = 696BHPW9KB;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../../../builds/framework/universal";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../builds/library/include";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/inc/**",
+					"$(PROJECT_DIR)/../../lib/include",
+					"$(PROJECT_DIR)/../../bin/library/include/**",
+					"$(PROJECT_DIR)/../../../builds/library/include",
+					"$(PROJECT_DIR)/../../../../builds/library/include",
+				);
 				INFOPLIST_FILE = MediaPlayerSDKTest.swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../../../builds/library/lib/shared";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.veg.MediaPlayerSDKTest-swift";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs",
+					"$(PROJECT_DIR)/../../lib",
+					"$(PROJECT_DIR)/../../lib/static.ffmpeg",
+					"$(PROJECT_DIR)/../../bin/library/lib/static.ffmpeg",
+					"$(PROJECT_DIR)/../../../builds/library/lib/static",
+					"$(PROJECT_DIR)/../../../../builds/library/lib/static",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.veg.MediaPlayerSDKTest-swift-jan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridge-header.h";
 				SWIFT_VERSION = 5.0;
